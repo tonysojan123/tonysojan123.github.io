@@ -164,3 +164,339 @@
             transition: 0.4s;
             border: 1px solid rgba(255,255,255,0.05);
         }
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .card-media {
+            height: 220px;
+            background: #2d3748;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: #94a3b8;
+        }
+        .card-media img, .card-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-content { padding: 1.5rem; }
+        .tech-stack { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tech-tag {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            color: var(--primary);
+        }
+
+        /* EXPERIENCE TIMELINE & LOGOS */
+        .timeline {
+            border-left: 2px solid rgba(255,255,255,0.1);
+            padding-left: 2rem;
+        }
+        .job-item { position: relative; margin-bottom: 4rem; }
+        .job-item::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: -39px;
+            top: 5px;
+            border: 4px solid var(--bg-dark);
+        }
+        .job-header { display: flex; align-items: center; margin-bottom: 10px; }
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            background: white;
+            border-radius: 8px;
+            padding: 5px;
+            margin-right: 15px;
+        }
+        .job-title { font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
+        .job-company { color: var(--primary); font-weight: 600; display: block; }
+        .job-date { font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-bottom: 1rem; display: block; }
+
+        /* EDUCATION GRID & LOGOS */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .edu-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .school-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background: white;
+            border-radius: 8px;
+            padding: 5px;
+            margin-bottom: 1rem;
+        }
+
+        /* CONTACT & FOOTER */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #020617;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .contact-info p { margin: 10px 0; font-size: 1.1rem; }
+        .social-links { margin-top: 1.5rem; }
+        .social-links a { font-size: 1.5rem; margin: 0 15px; color: var(--text-main); }
+        .social-links a:hover { color: var(--primary); }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 4rem; }
+            .hero-content { padding-right: 0; }
+            .hero-img-container { flex: 0 0 auto; width: 100%; max-width: 300px; margin-bottom: 2rem; }
+            .hero-img { width: 250px; height: 250px; }
+            h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .about-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Tony Sojan</div>
+        <div class="nav-links">
+            <a href="#home">Home</a> <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#contact" style="color: var(--primary);">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="badge">🚀 5+ Years Professional Experience</div>
+            
+            <h1>Engineering Management Graduate & Mechanical Engineer</h1>
+            
+            <p class="subtitle">
+                Bridging the gap between technical engineering and business strategy to build scalable user-centric products.
+            </p>
+            
+            <div class="cta-group">
+                <a href="resume.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+                <a href="https://www.linkedin.com/in/tony-sojan" class="btn btn-outline" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-img-container">
+            <img src="profile.jpg" alt="Tony Sojan" class="hero-img">
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>I am a graduate student at <strong>Northeastern University</strong> pursuing an MS in Engineering Management, with a background in Mechanical Engineering from New Zealand. [cite_start]My expertise lies in bridging the gap between technical engineering and product management[cite: 6, 10].</p>
+                <br>
+                <p>I have extensive experience in manufacturing, data analytics, and project leadership. [cite_start]I am passionate about using <strong>Agile & Scrum Methodologies</strong> to drive product development and operational efficiency[cite: 20].</p>
+            </div>
+            <div class="about-skills">
+                <h4 style="margin-bottom:1rem;">Key Competencies</h4>
+                <div class="skills-list">
+                    <div class="skill-item">Product Management</div>
+                    <div class="skill-item">Agile & Scrum</div>
+                    <div class="skill-item">Python & SQL</div>
+                    <div class="skill-item">Data Analytics</div>
+                    <div class="skill-item">Manufacturing Ops</div>
+                    <div class="skill-item">PMP® Certified</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="project-grid">
+
+            <div class="project-card">
+                <div class="card-media">
+                    <img src="helmet.jpg" alt="Eco Helmet" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'padding:20px\'>Upload helmet.jpg</span>'">
+                </div>
+                <div class="card-content">
+                    <h3>Eco-Friendly Bicycle Helmet</h3>
+                    <p>Designed a low-cost helmet using composite cork material. Research proved agglomerated cork excels in energy absorption.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Product Design</span>
+                        <span class="tech-tag">Material Science</span>
+                    </div>
+                    <br>
+                    <a href="https://www.mdpi.com/1996-1944/17/8/1925" style="color:var(--primary); font-size:0.9rem; font-weight:bold;">Read Publication &rarr;</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="card-media">
+                    <span style="padding:20px">Upload 'nasa.mp4'</span>
+                </div>
+                <div class="card-content">
+                    <h3>NASA SUITS Haptic Joystick</h3>
+                    <p>Developed a haptic-feedback joystick using an ESP32 and 2-axis servo gimbal for controlling a rover in simulated space environments.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Robotics</span>
+                        <span class="tech-tag">C++ / ESP32</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="card-media">
+                    <div style="width:100%; height:100%; background: linear-gradient(45deg, #1e293b, #0f172a);"></div>
+                </div>
+                <div class="card-content">
+                    <h3>Predictive Maintenance AI</h3>
+                    <p>Python machine learning model to predict industrial equipment failure by analyzing time-series sensor data.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">IoT</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+
+            <div class="job-item">
+                <div class="job-header">
+                    <img src="draeger.png" alt="Draeger Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=D'">
+                    <div>
+                        <div class="job-title">Project Manager Intern</div>
+                        <span class="job-company">Draeger | Andover, MA</span>
+                    </div>
+                </div>
+                <span class="job-date" style="padding-left: 65px;">May 2025 – Aug 2025</span>
+                <p style="padding-left: 65px;">Reduced Production Failure Rate from 15% to 5.5% by improving manufacturing practices. Developed AI automation for technical documentation, cutting manual time by 35%.</p>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <img src="solarzero.png" alt="SolarZero Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=S'">
+                    <div>
+                        <div class="job-title">Product Manager</div>
+                        <span class="job-company">SolarZero | New Zealand</span>
+                    </div>
+                </div>
+                <span class="job-date" style="padding-left: 65px;">Jun 2023 – Nov 2023</span>
+                <p style="padding-left: 65px;">Managed roadmap for energy monitoring hardware using 600+ customer feedback points. Analyzed data from 10,000+ customers to optimize system efficiency.</p>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <img src="velohawk.png" alt="Velohawk Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=V'">
+                    <div>
+                        <div class="job-title">Product Design Engineer</div>
+                        <span class="job-company">Velohawk | New Zealand</span>
+                    </div>
+                </div>
+                <span class="job-date" style="padding-left: 65px;">Mar 2023 – Jun 2023</span>
+                <p style="padding-left: 65px;">Converted 3D design files to fabrication formats for manufacturers, ensuring accuracy for production. Utilized SolidWorks to design and modify CAD files, assisting in the development of new products.</p>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <img src="cullen.png" alt="Cullen Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=C'">
+                    <div>
+                        <div class="job-title">Project Engineer</div>
+                        <span class="job-company">Cullen Engineering | New Zealand</span>
+                    </div>
+                </div>
+                <span class="job-date" style="padding-left: 65px;">Jul 2019 – Dec 2021</span>
+                <p style="padding-left: 65px;">Managed full lifecycle of manufacturing projects. Led a 10-person cross-functional engineering team.</p>
+            </div>
+            
+             <div class="job-item">
+                <div class="job-header">
+                    <img src="longveld.png" alt="Longveld Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=L'">
+                    <div>
+                        <div class="job-title">CNC Machinist</div>
+                        <span class="job-company">Longveld | New Zealand</span>
+                    </div>
+                </div>
+                <span class="job-date" style="padding-left: 65px;">Dec 2017 – Jun 2019</span>
+                <p style="padding-left: 65px;">Collaborated with Product Design teams to translate 3D CAD drawings into manufacturable parts.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="edu-grid">
+            
+            <div class="edu-card">
+                <img src="northeastern.png" alt="Northeastern Logo" class="school-logo" onerror="this.src='https://via.placeholder.com/60?text=NU'">
+                <h4>Northeastern University</h4>
+                <p><strong>Master of Science in Engineering Management</strong></p>
+                <p style="font-size:0.9rem; color:var(--text-muted)">Expected May 2026</p>
+                <p style="margin-top:10px; font-size:0.9rem;">Vice President – Energy Systems Society</p>
+            </div>
+            
+            <div class="edu-card">
+                <img src="aut.png" alt="AUT Logo" class="school-logo" onerror="this.src='https://via.placeholder.com/60?text=AUT'">
+                <h4>Auckland University of Technology</h4>
+                <p><strong>Bachelor of Engineering Technology in Mechanical Engineering</strong></p>
+                <p style="font-size:0.9rem; color:var(--text-muted)">Graduated Jun 2023</p>
+            </div>
+            
+             <div class="edu-card">
+                <img src="wintec.png" alt="Wintec Logo" class="school-logo" onerror="this.src='https://via.placeholder.com/60?text=W'">
+                <h4>Waikato Institute of Technology</h4>
+                <p><strong>Diploma in Mechanical Engineering (Assosciate Degree) </strong></p>
+                <p style="font-size:0.9rem; color:var(--text-muted)">Graduated Nov 2017</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2 style="margin-bottom: 2rem;">Let's Connect</h2>
+        
+        <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary); margin-right:10px;"></i> Boston, MA</p>
+            <p><i class="fas fa-envelope" style="color:var(--primary); margin-right:10px;"></i> sojan.t@northeastern.edu</p>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/tony-sojan" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:sojan.t@northeastern.edu"><i class="fas fa-envelope"></i></a>
+        </div>
+        
+        <p style="margin-top: 3rem; font-size:0.8rem; opacity:0.5;">&copy; 2025 Tony Sojan. Built with GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
