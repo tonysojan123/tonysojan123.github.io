@@ -33,7 +33,7 @@
             color: var(--text-main);
             line-height: 1.7;
             overflow-x: hidden;
-            scroll-behavior: smooth; /* Smooth scrolling for nav links */
+            scroll-behavior: smooth;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -93,25 +93,30 @@
         
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 12px 25px; /* Slightly adjusted for 3 buttons */
             border-radius: 8px;
             font-weight: 600;
-            margin-right: 15px;
+            margin-right: 10px;
+            margin-bottom: 10px; /* Adds space if they stack on mobile */
         }
         .btn-primary { background: var(--primary); color: var(--bg-dark); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2); }
         .btn-outline { border: 2px solid var(--text-muted); color: var(--text-main); }
         .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
 
+        /* UPDATED IMAGE STYLES */
         .hero-img-container {
-            flex: 0 0 350px;
+            flex: 0 0 300px; /* Reduced container size */
             position: relative;
+            display: flex;
+            justify-content: center;
         }
         .hero-img {
-            width: 350px;
-            height: 350px;
+            width: 280px; /* Reduced width to increase sharpness */
+            height: auto; /* Auto height maintains aspect ratio */
+            max-height: 400px;
             object-fit: cover;
-            border-radius: 50%;
+            border-radius: 20px; /* Rectangular with rounded corners */
             border: 4px solid rgba(56, 189, 248, 0.3);
             box-shadow: 0 0 30px rgba(56, 189, 248, 0.1);
         }
@@ -267,7 +272,7 @@
             .hero { flex-direction: column-reverse; text-align: center; padding-top: 4rem; }
             .hero-content { padding-right: 0; }
             .hero-img-container { flex: 0 0 auto; width: 100%; max-width: 300px; margin-bottom: 2rem; }
-            .hero-img { width: 250px; height: 250px; }
+            .hero-img { width: 250px; }
             h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
             .about-grid { grid-template-columns: 1fr; }
@@ -304,6 +309,9 @@
                 <a href="https://www.linkedin.com/in/tony-sojan" class="btn btn-outline" target="_blank">
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
+                <a href="mailto:sojan.t@northeastern.edu" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
             </div>
         </div>
 
@@ -316,9 +324,9 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-grid">
             <div class="about-text">
-                <p>I am a graduate student at <strong>Northeastern University</strong> pursuing an MS in Engineering Management, with a background in Mechanical Engineering from New Zealand. [cite_start]My expertise lies in bridging the gap between technical engineering and product management[cite: 6, 10].</p>
+                <p>I am a graduate student at <strong>Northeastern University</strong> pursuing an MS in Engineering Management, with a background in Mechanical Engineering from New Zealand. My expertise lies in bridging the gap between technical engineering and product management.</p>
                 <br>
-                <p>I have extensive experience in manufacturing, data analytics, and project leadership. [cite_start]I am passionate about using <strong>Agile & Scrum Methodologies</strong> to drive product development and operational efficiency[cite: 20].</p>
+                <p>I have extensive experience in manufacturing, data analytics, and project leadership. I am passionate about using <strong>Agile & Scrum Methodologies</strong> to drive product development and operational efficiency.</p>
             </div>
             <div class="about-skills">
                 <h4 style="margin-bottom:1rem;">Key Competencies</h4>
