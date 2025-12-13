@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tony Sojan | Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           THEME SETTINGS (CHANGE COLORS HERE)
+           ========================================= */
+        :root {
+            /* Main Brand Color (Currently: Electric Blue) */
+            --primary: #38bdf8; 
+            
+            /* Secondary Accent (Currently: Soft Purple) */
+            --accent: #818cf8;
+
+            /* Background Colors (Dark Mode) */
+            --bg-dark: #0f172a;   /* Very dark slate */
+            --bg-card: #1e293b;   /* Slightly lighter slate for cards */
+            
+            /* Text Colors */
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        /* RESET & BASE STYLES */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); }
+        .nav-links a {
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* HERO SECTION */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 90vh;
+            padding: 0 10%;
+            animation: fadeIn 1s ease-out;
+        }
+        .hero-content { flex: 1; padding-right: 3rem; }
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1rem; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem; }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+        .btn-primary { background: var(--primary); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2); }
+        .btn-outline { border: 2px solid var(--text-muted); color: var(--text-main); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+        .hero-img-container {
+            flex: 0 0 400px;
+            position: relative;
+        }
+        .hero-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 20px 20px 0px rgba(56, 189, 248, 0.1); /* Abstract shadow effect */
+        }
+
+        /* SECTION STYLES */
+        section { padding: 6rem 10%; }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            border-radius: 2px;
+        }
+
+        /* PROJECTS GRID */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.4s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .card-media {
+            height: 220px;
+            background: #2d3748;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .card-media img, .card-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .project-card:hover .card-media img { transform: scale(1.05); }
+        .card-content { padding: 1.5rem; }
+        .tech-stack { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tech-tag {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            color: var(--primary);
+        }
+
+        /* EXPERIENCE TIMELINE */
+        .timeline {
+            border-left: 2px solid rgba(255,255,255,0.1);
+            padding-left: 2rem;
+        }
+        .job-item { position: relative; margin-bottom: 3rem; }
+        .job-item::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: -39px;
+            top: 5px;
+            border: 4px solid var(--bg-dark);
+        }
+        .job-title { font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
+        .job-company { color: var(--primary); font-weight: 600; margin-bottom: 0.5rem; display: block; }
+        .job-date { font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-bottom: 1rem; display: block; }
+
+        /* EDUCATION GRID */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .edu-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #020617;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .social-links a { font-size: 1.5rem; margin: 0 15px; color: var(--text-main); }
+        .social-links a:hover { color: var(--primary); }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 4rem; }
+            .hero-content { padding-right: 0; }
+            .hero-img-container { flex: 0 0 auto; width: 100%; max-width: 300px; margin-bottom: 2rem; }
+            .hero-img { height: 300px; }
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified for mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Tony Sojan.</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#contact" style="color: var(--primary);">Contact</a>
+        </div>
+    </nav>
+
+    <section id="about" class="hero">
+        <div class="hero-content">
+            <div class="badge">🚀 5+ Years Professional Experience</div>
+            <h1>Engineering Management <br> & Product Strategy</h1>
+            <p class="subtitle">Bridging the gap between technical engineering and product management. Expert in Agile, Data Analytics, and Manufacturing Operations.</p>
+            
+            <div class="cta-group">
+                <a href="resume.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+                <a href="https://www.linkedin.com/in/tony-sojan" class="btn btn-outline" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-img-container">
+            <img src="profile.jpg" alt="Tony Sojan" class="hero-img">
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="project-grid">
+
+            <div class="project-card">
+                <div class="card-media">
+                    <img src="helmet.jpg" alt="Eco Helmet Project" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'color:#666\'>Upload helmet.jpg</span>'">
+                </div>
+                <div class="card-content">
+                    [cite_start]<h3>Eco-Friendly Bicycle Helmet [cite: 48]</h3>
+                    <p>Designed a low-cost helmet using composite cork material. Research proved agglomerated cork excels in energy absorption.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Product Design</span>
+                        <span class="tech-tag">Material Science</span>
+                    </div>
+                    <br>
+                    <a href="https://www.mdpi.com/1996-1944/17/8/1925" style="color:var(--primary); font-size:0.9rem; font-weight:bold;">Read Publication &rarr;</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="card-media">
+                    <span style="color: #94a3b8;">Upload 'nasa.mp4' or Embed Video</span>
+                    </div>
+                <div class="card-content">
+                    [cite_start]<h3>NASA SUITS Haptic Joystick [cite: 51]</h3>
+                    <p>Developed a haptic-feedback joystick using an ESP32 and 2-axis servo gimbal for controlling a rover in simulated space environments.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Robotics</span>
+                        <span class="tech-tag">C++ / ESP32</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="card-media">
+                    <div style="width:100%; height:100%; background: linear-gradient(45deg, #1e293b, #0f172a);"></div>
+                </div>
+                <div class="card-content">
+                    [cite_start]<h3>Predictive Maintenance AI [cite: 50]</h3>
+                    <p>Python machine learning model to predict industrial equipment failure by analyzing time-series sensor data.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">IoT</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+
+            <div class="job-item">
+                <span class="job-company">Draeger | [cite_start]Andover, MA [cite: 24]</span>
+                <div class="job-title">Project Manager Intern</div>
+                <span class="job-date">May 2025 – Aug 2025</span>
+                <p>Reduced Production Failure Rate from 15% to 5.5% by improving manufacturing practices. Developed AI automation for technical documentation, cutting manual time by 35%.</p>
+            </div>
+
+            <div class="job-item">
+                <span class="job-company">SolarZero | [cite_start]New Zealand [cite: 29]</span>
+                <div class="job-title">Product Manager</div>
+                <span class="job-date">Jun 2023 – Nov 2023</span>
+                <p>Managed roadmap for energy monitoring hardware using 600+ customer feedback points. Analyzed data from 10,000+ customers to optimize system efficiency.</p>
+            </div>
+
+            <div class="job-item">
+                <span class="job-company">Cullen Engineering | [cite_start]New Zealand [cite: 36]</span>
+                <div class="job-title">Project Engineer</div>
+                <span class="job-date">Jul 2019 – Dec 2021</span>
+                <p>Managed full lifecycle of manufacturing projects. Led a 10-person cross-functional engineering team.</p>
+            </div>
+            
+             <div class="job-item">
+                <span class="job-company">Longveld | [cite_start]New Zealand [cite: 44]</span>
+                <div class="job-title">CNC Machinist</div>
+                <span class="job-date">Dec 2017 – Jun 2019</span>
+                <p>Collaborated with Product Design teams to translate 3D CAD drawings into manufacturable parts.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="edu-grid">
+            <div class="edu-card">
+                [cite_start]<h4>Northeastern University [cite: 4]</h4>
+                <p><strong>M.S. Engineering Management</strong></p>
+                <p style="font-size:0.9rem; color:var(--text-muted)">Expected May 2026</p>
+                <p style="margin-top:10px; font-size:0.9rem;">Vice President – Energy Systems Society</p>
+            </div>
+            <div class="edu-card">
+                [cite_start]<h4>Auckland University of Technology [cite: 8]</h4>
+                <p><strong>B.E. Mechanical Engineering</strong></p>
+                <p style="font-size:0.9rem; color:var(--text-muted)">Graduated Jun 2023</p>
+            </div>
+             <div class="edu-card">
+                [cite_start]<h4>Waikato Institute of Technology [cite: 12]</h4>
+                <p><strong>Dip. Mechanical Engineering</strong></p>
+                <p style="font-size:0.9rem; color:var(--text-muted)">Graduated Nov 2017</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2 style="margin-bottom: 2rem;">Let's Connect</h2>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/tony-sojan" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:sojan.t@northeastern.edu"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p style="margin-top: 2rem;">&copy; 2025 Tony Sojan. Built with GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
