@@ -93,30 +93,30 @@
         
         .btn {
             display: inline-block;
-            padding: 12px 25px; /* Slightly adjusted for 3 buttons */
+            padding: 12px 25px;
             border-radius: 8px;
             font-weight: 600;
             margin-right: 10px;
-            margin-bottom: 10px; /* Adds space if they stack on mobile */
+            margin-bottom: 10px;
         }
         .btn-primary { background: var(--primary); color: var(--bg-dark); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2); }
         .btn-outline { border: 2px solid var(--text-muted); color: var(--text-main); }
         .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
 
-        /* UPDATED IMAGE STYLES */
+        /* UPDATED IMAGE STYLES - SMALLER SIZE */
         .hero-img-container {
-            flex: 0 0 300px; /* Reduced container size */
+            flex: 0 0 250px; /* Reduced container size */
             position: relative;
             display: flex;
             justify-content: center;
         }
         .hero-img {
-            width: 280px; /* Reduced width to increase sharpness */
-            height: auto; /* Auto height maintains aspect ratio */
-            max-height: 400px;
+            width: 220px; /* Reduced width to make it smaller */
+            height: auto;
+            max-height: 350px;
             object-fit: cover;
-            border-radius: 20px; /* Rectangular with rounded corners */
+            border-radius: 20px;
             border: 4px solid rgba(56, 189, 248, 0.3);
             box-shadow: 0 0 30px rgba(56, 189, 248, 0.1);
         }
@@ -272,7 +272,7 @@
             .hero { flex-direction: column-reverse; text-align: center; padding-top: 4rem; }
             .hero-content { padding-right: 0; }
             .hero-img-container { flex: 0 0 auto; width: 100%; max-width: 300px; margin-bottom: 2rem; }
-            .hero-img { width: 250px; }
+            .hero-img { width: 220px; }
             h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
             .about-grid { grid-template-columns: 1fr; }
@@ -310,7 +310,7 @@
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
                 <a href="mailto:sojan.t@northeastern.edu" class="btn btn-outline">
-                    <i class="fas fa-envelope"></i> Email
+                    <i class="fas fa-envelope"></i> sojan.t@northeastern.edu
                 </a>
             </div>
         </div>
