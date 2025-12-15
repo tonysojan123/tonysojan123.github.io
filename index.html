@@ -139,21 +139,38 @@
             border-radius: 2px;
         }
 
-        /* ABOUT SECTION */
-        .about-grid {
+        /* ABOUT SECTION & SKILLS MATRIX */
+        .about-text { margin-bottom: 3rem; max-width: 900px; }
+        
+        .skills-matrix {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
-            align-items: start;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
-        .skills-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
+        .skill-category {
+            background: rgba(255,255,255,0.02);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .skill-category h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .skills-list { display: flex; flex-wrap: wrap; gap: 8px; }
         .skill-item {
             background: rgba(255,255,255,0.05);
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            border-left: 3px solid var(--primary);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #d1d5db;
+            transition: 0.2s;
         }
+        .skill-item:hover { background: rgba(56, 189, 248, 0.15); color: #fff; }
 
         /* PROJECTS GRID */
         .project-grid {
@@ -257,7 +274,7 @@
             border-radius: 8px;
             border: 1px solid rgba(255,255,255,0.1);
             transition: 0.3s;
-            cursor: zoom-in; /* Indicates clickability */
+            cursor: zoom-in;
         }
         .modal-gallery img:hover { transform: scale(1.02); border-color: var(--primary); }
 
@@ -265,7 +282,7 @@
         #fullscreen-overlay {
             display: none;
             position: fixed;
-            z-index: 3000; /* Must be higher than modal */
+            z-index: 3000;
             left: 0;
             top: 0;
             width: 100%;
@@ -308,6 +325,17 @@
         .job-title { font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
         .job-company { color: var(--primary); font-weight: 600; display: block; }
         .job-date { font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-bottom: 1rem; display: block; }
+        
+        /* NEW: Job Bullet Points Style */
+        .job-details ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            color: #d1d5db;
+        }
+        .job-details li {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
 
         .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .edu-card { background: var(--bg-card); padding: 2rem; border-radius: 12px; border-top: 4px solid var(--accent); display: flex; flex-direction: column; align-items: flex-start; }
@@ -325,7 +353,7 @@
             .hero-img-container { flex: 0 0 auto; width: 100%; max-width: 300px; margin-bottom: 2rem; }
             .hero-img { width: 220px; }
             .nav-links { display: none; }
-            .about-grid { grid-template-columns: 1fr; }
+            .skills-matrix { grid-template-columns: 1fr; }
             .modal-content { width: 95%; margin: 10% auto; padding: 1.5rem; }
             .modal-header { flex-direction: column; text-align: center; }
             .modal-logo { margin: 0 0 15px 0; }
@@ -349,7 +377,7 @@
         <div class="hero-content">
             <div class="badge">🚀 5+ Years Professional Experience</div>
             <h1>Engineering Management Graduate & Mechanical Engineer</h1>
-            <p class="subtitle">Bridging the gap between technical engineering and business strategy to build scalable user-centric products.</p>
+            <p class="subtitle">Bridging the gap between complex engineering challenges and business strategy to deliver scalable, user-centric hardware products.</p>
             <div class="cta-group">
                 <a href="resume.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Download Resume</a>
                 <a href="https://www.linkedin.com/in/tony-sojan" class="btn btn-outline" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -363,21 +391,61 @@
 
     <section id="about">
         <h2 class="section-title">About Me</h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <p>I am a graduate student at <strong>Northeastern University</strong> pursuing an MS in Engineering Management, with a background in Mechanical Engineering from New Zealand. My expertise lies in bridging the gap between technical engineering and product management.</p>
-                <br>
-                <p>I have extensive experience in manufacturing, data analytics, and project leadership. I am passionate about using <strong>Agile & Scrum Methodologies</strong> to drive product development and operational efficiency.</p>
-            </div>
-            <div class="about-skills">
-                <h4 style="margin-bottom:1rem;">Key Competencies</h4>
+        
+        <div class="about-text">
+            <p>I am an <strong>Engineering Management graduate</strong> from Northeastern University with a strong foundation in Mechanical Engineering. I specialize in <strong>Product Development, Product Management, and Project Management</strong>, expertly bridging the gap between complex engineering challenges and strategic business goals.</p>
+            <br>
+            <p>With extensive experience in manufacturing, data analytics, and agile leadership, I am driven by a singular mission: <strong>to make a tangible difference in the world by building products that matter.</strong></p>
+        </div>
+
+        <div class="skills-matrix">
+            <div class="skill-category">
+                <h4>Hardware Product Management</h4>
                 <div class="skills-list">
-                    <div class="skill-item">Product Management</div>
-                    <div class="skill-item">Agile & Scrum</div>
-                    <div class="skill-item">Python & SQL</div>
-                    <div class="skill-item">Data Analytics</div>
-                    <div class="skill-item">Manufacturing Ops</div>
-                    <div class="skill-item">PMP® Certified</div>
+                    <span class="skill-item">Product Lifecycle Management (PLM)</span>
+                    <span class="skill-item">Product Roadmapping</span>
+                    <span class="skill-item">Go-to-Market Strategy</span>
+                    <span class="skill-item">User Research</span>
+                    <span class="skill-item">Competitive Analysis</span>
+                    <span class="skill-item">Cross-Functional Leadership</span>
+                    <span class="skill-item">PMP® Certified</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4>Product Design & Development</h4>
+                <div class="skills-list">
+                    <span class="skill-item">New Product Introduction (NPI)</span>
+                    <span class="skill-item">Design for Mfg (DFM)</span>
+                    <span class="skill-item">Rapid Prototyping</span>
+                    <span class="skill-item">3D CAD (SolidWorks)</span>
+                    <span class="skill-item">AutoCAD</span>
+                    <span class="skill-item">BOM Management</span>
+                    <span class="skill-item">Figma</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4>Manufacturing & Operations</h4>
+                <div class="skills-list">
+                    <span class="skill-item">CNC Machining</span>
+                    <span class="skill-item">Quality Assurance</span>
+                    <span class="skill-item">Production Scaling</span>
+                    <span class="skill-item">Supply Chain Coordination</span>
+                    <span class="skill-item">Cost Estimation</span>
+                    <span class="skill-item">Material Selection</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4>Data & Tools</h4>
+                <div class="skills-list">
+                    <span class="skill-item">Power BI</span>
+                    <span class="skill-item">Excel (Advanced)</span>
+                    <span class="skill-item">Jira & Confluence</span>
+                    <span class="skill-item">MS Project</span>
+                    <span class="skill-item">Salesforce</span>
+                    <span class="skill-item">Statistical Analysis</span>
                 </div>
             </div>
         </div>
@@ -422,7 +490,7 @@
                     <img src="nasa_thumb.jpg" alt="NASA SUITS" onerror="this.src='https://via.placeholder.com/300?text=NASA'">
                 </div>
                 <div class="card-content">
-                    <h3>NASA SUITS Haptic Joystick</h3>
+                    <h3>NASA SUITS Challenge Haptic Joystick</h3>
                     <p>Developed a haptic-feedback joystick using an ESP32 and 2-axis servo gimbal for controlling a rover.</p>
                     <span class="read-more">View Details &rarr;</span>
                 </div>
@@ -504,7 +572,8 @@
                 <h2 style="margin:0;">Eco-Friendly Bicycle Helmet</h2>
             </div>
             <div class="modal-text">
-                <p>Designed a low-cost bicycle helmet utilizing sustainable composite cork materials. Through rigorous testing, we discovered that agglomerated cork combined with polyurethane excels in energy absorption and dimensional recovery, offering a viable eco-friendly alternative to traditional synthetic liners.</p>
+                <p>Developed a sustainable composite cork material for helmet liners, specifically engineering a solution to replace traditional non-biodegradable foams. This project involved a rigorous R&D phase, including the selection of flexible binders and the design of custom test equipment to quantify energy absorption accurately.</p>
+                <p>The process required optimizing the manufacturing parameters—specifically binder concentration, molding temperature, and pressure—to achieve the ideal material properties. Through extensive compression and impact testing, I discovered that agglomerated cork combined with a polyurethane binder excels in crashworthiness, dimensional recovery, and mechanical performance, offering a highly effective and biodegradable alternative for eco-conscious protective gear.</p>
                 <br>
                 <a href="https://www.mdpi.com/1996-1944/17/8/1925" target="_blank" class="btn btn-primary" style="margin-top:10px;">Read Published Paper</a>
             </div>
@@ -524,7 +593,7 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-nasa')">&times;</span>
             <div class="modal-header">
-                <h2 style="margin:0;">NASA SUITS Haptic Joystick</h2>
+                <h2 style="margin:0;">NASA SUITS Challenge Haptic Joystick</h2>
             </div>
             <div class="modal-text">
                 <p>Developed a haptic-feedback joystick using an ESP32 and 2-axis servo gimbal for controlling a rover in simulated space environments. The system provides force-feedback to the operator, improving control precision in remote operation scenarios.</p>
@@ -618,7 +687,15 @@
                     </div>
                 </div>
                 <span class="job-date" style="padding-left: 65px;">May 2025 – Aug 2025</span>
-                <p style="padding-left: 65px;">Reduced Production Failure Rate from 15% to 5.5% by improving manufacturing practices. Developed AI automation for technical documentation, cutting manual time by 35%.</p>
+                <div class="job-details">
+                    <ul>
+                        <li>Identified design and process issues during patient monitoring device M540 production, driving manufacturing practices improvements with cross-functional teams that reduced Production Failure Rate from 15% to below 5.5% goal through daily PFR meetings and problem-solving workshops.</li>
+                        <li>Developed an automation process using an AI assistant to parse technical initiation documents (PTIs) and generate project deliverables, aligning with long-term workflow strategies and reducing manual setup time by 35%.</li>
+                        <li>Identified, prioritized, and managed key technical risks across medical device projects, ensuring all technical risks were mitigated through cross-functional collaboration with engineering, regulatory, and manufacturing teams.</li>
+                        <li>Supported the preparation and maintenance of project documentation, including project schedules, status reports, and meeting minutes and explained the team’s analyses and recommendations to the senior executives.</li>
+                        <li>Conducted research and analysis to support project planning and decision-making.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="job-item">
@@ -630,7 +707,15 @@
                     </div>
                 </div>
                 <span class="job-date" style="padding-left: 65px;">Jun 2023 – Nov 2023</span>
-                <p style="padding-left: 65px;">Managed roadmap for energy monitoring hardware using 600+ customer feedback points. Analyzed data from 10,000+ customers to optimize system efficiency.</p>
+                <div class="job-details">
+                    <ul>
+                        <li>Managed multiple large-scale energy system projects from start to finish, developing project schedules and coordinating with cross-functional teams to ensure successful commissioning and configuration of customer installations.</li>
+                        <li>Worked with product design and engineering teams to define requirements and technical specifications for a new energy monitoring hardware device by collecting 600+ customer feedback, managing its development roadmap.</li>
+                        <li>Identified process issues in fleet management and installation, driving design and process enhancements to streamline installation procedures and improved operational efficiency by 20%, by collaborating with engineering and service teams.</li>
+                        <li>Leveraged large datasets from solar monitoring platforms of 10,000+ customers to conduct data analysis to identify underperforming systems, optimize system configurations to improve overall system efficiency.</li>
+                        <li>Collaborated with engineering and field service teams to enhance system configuration while monitoring system performance, resolving issues remotely or with field teams to ensure customer satisfaction.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="job-item">
@@ -642,7 +727,13 @@
                     </div>
                 </div>
                 <span class="job-date" style="padding-left: 65px;">Mar 2023 – Jun 2023</span>
-                <p style="padding-left: 65px;">Converted 3D design files to fabrication formats for manufacturers, ensuring accuracy for production. Utilized SolidWorks to design and modify CAD files, assisting in the development of new products.</p>
+                <div class="job-details">
+                    <ul>
+                        <li>Utilized SolidWorks to design and modify CAD models for premium bike and micromobility storage, directly assisting in the lifecycle development of innovative new products.</li>
+                        <li>Converted complex 3D design files into fabrication-ready formats for manufacturers, ensuring strict adherence to production specifications and accuracy.</li>
+                        <li>Applied Design for Manufacture (DFM) principles to optimize storage solutions, ensuring designs were both functional and aesthetically aligned with the brand's premium identity.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="job-item">
@@ -654,7 +745,15 @@
                     </div>
                 </div>
                 <span class="job-date" style="padding-left: 65px;">Jul 2019 – Dec 2021</span>
-                <p style="padding-left: 65px;">Managed full lifecycle of manufacturing projects. Led a 10-person cross-functional engineering team.</p>
+                <div class="job-details">
+                    <ul>
+                        <li>Managed full lifecycle of manufacturing projects from concept to deployment, ensuring designs met functional requirements while optimizing for production, managing cost estimation and resource allocation.</li>
+                        <li>Managed a 10-person cross functional engineering team, overseeing daily operations and ensuring workflow efficiency.</li>
+                        <li>Worked with clients and internal Product Design teams to develop manufacturing processes that met product design requirements, coordinating with cross-functional teams throughout all phases of development and product introduction.</li>
+                        <li>Managed the mechanical/assembly side of projects from initial builds through ramp, serving as mechanical technical lead in resolving issues during bring-up and life of product, identified design and process issues in the development cycle.</li>
+                        <li>Estimated project costs, planned and scheduled production runs, maintained detailed project documentation and oversaw prototype development and testing, utilized 3D CAD SolidWorks to design new products.</li>
+                    </ul>
+                </div>
             </div>
             
              <div class="job-item">
@@ -666,7 +765,12 @@
                     </div>
                 </div>
                 <span class="job-date" style="padding-left: 65px;">Dec 2017 – Jun 2019</span>
-                <p style="padding-left: 65px;">Collaborated with Product Design teams to translate 3D CAD drawings into manufacturable parts.</p>
+                <div class="job-details">
+                    <ul>
+                        <li>Operated CNC machineries with precision, ensuring accurate cutting and adherence to production specifications, performed routine maintenance and troubleshooting on the machineries to maintain optimal functionality.</li>
+                        <li>Collaborated with Product Design team and production engineers to translate 3D CAD drawings into manufacturable parts, providing technical feedback to develop manufacturing processes for early-stage hardware prototypes.</li>
+                    </ul>
+                </div>
             </div>
 
         </div>
