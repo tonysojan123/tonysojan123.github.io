@@ -257,9 +257,44 @@
             border-radius: 8px;
             border: 1px solid rgba(255,255,255,0.1);
             transition: 0.3s;
-            cursor: zoom-in;
+            cursor: zoom-in; /* Indicates clickability */
         }
         .modal-gallery img:hover { transform: scale(1.02); border-color: var(--primary); }
+
+        /* FULLSCREEN IMAGE OVERLAY */
+        #fullscreen-overlay {
+            display: none;
+            position: fixed;
+            z-index: 3000; /* Must be higher than modal */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            animation: fadeIn 0.2s;
+        }
+        #fullscreen-image {
+            max-width: 90%;
+            max-height: 90%;
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            cursor: default;
+        }
+        #fullscreen-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #fullscreen-close:hover { color: var(--primary); }
 
         /* EXPERIENCE & EDUCATION */
         .timeline { border-left: 2px solid rgba(255,255,255,0.1); padding-left: 2rem; }
@@ -453,11 +488,11 @@
             </div>
             <h4 class="modal-gallery-title">Project Gallery</h4>
             <div class="modal-gallery">
-                <img src="clarify_1.png" alt="Clarify 1" onerror="this.style.display='none'">
-                <img src="clarify_2.png" alt="Clarify 2" onerror="this.style.display='none'">
-                <img src="clarify_3.png" alt="Clarify 3" onerror="this.style.display='none'">
-                <img src="clarify_4.png" alt="Clarify 4" onerror="this.style.display='none'">
-                <img src="clarify_5.png" alt="Clarify 5" onerror="this.style.display='none'">
+                <img src="clarify_1.png" alt="Clarify 1" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="clarify_2.png" alt="Clarify 2" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="clarify_3.png" alt="Clarify 3" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="clarify_4.png" alt="Clarify 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="clarify_5.png" alt="Clarify 5" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -475,12 +510,12 @@
             </div>
             <h4 class="modal-gallery-title">Prototypes & Testing</h4>
             <div class="modal-gallery">
-                <img src="cork_1.jpg" alt="Cork 1" onerror="this.style.display='none'">
-                <img src="cork_2.jpg" alt="Cork 2" onerror="this.style.display='none'">
-                <img src="cork_3.PNG" alt="Cork 3" onerror="this.style.display='none'">
-                <img src="cork_4.jpg" alt="Cork 4" onerror="this.style.display='none'">
-                <img src="cork_5.jpg" alt="Cork 5" onerror="this.style.display='none'">
-                <img src="cork_8.jpg" alt="Cork 8" onerror="this.style.display='none'">
+                <img src="cork_1.jpg" alt="Cork 1" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="cork_2.jpg" alt="Cork 2" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="cork_3.PNG" alt="Cork 3" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="cork_4.jpg" alt="Cork 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="cork_5.jpg" alt="Cork 5" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="cork_8.jpg" alt="Cork 8" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -496,9 +531,9 @@
             </div>
             <h4 class="modal-gallery-title">Hardware & Design</h4>
             <div class="modal-gallery">
-                <img src="nasa_1.jpg" alt="NASA 1" onerror="this.style.display='none'">
-                <img src="nasa_3.jpg" alt="NASA 3" onerror="this.style.display='none'">
-                <img src="nasa_4.jpg" alt="NASA 4" onerror="this.style.display='none'">
+                <img src="nasa_1.jpg" alt="NASA 1" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="nasa_3.jpg" alt="NASA 3" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="nasa_4.jpg" alt="NASA 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -514,7 +549,7 @@
             </div>
             <h4 class="modal-gallery-title">Dashboard View</h4>
             <div class="modal-gallery">
-                <img src="feedback_1.png" alt="Feedback Dashboard" onerror="this.style.display='none'">
+                <img src="feedback_1.png" alt="Feedback Dashboard" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -530,7 +565,7 @@
             </div>
             <h4 class="modal-gallery-title">System Overview</h4>
             <div class="modal-gallery">
-                <img src="predictive_1.jpg" alt="Predictive System" onerror="this.style.display='none'">
+                <img src="predictive_1.jpg" alt="Predictive System" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -544,10 +579,10 @@
             </div>
             <h4 class="modal-gallery-title">Build Process</h4>
             <div class="modal-gallery">
-                <img src="solar_1.jpg" alt="Solar 1" onerror="this.style.display='none'">
-                <img src="solar_2.jpg" alt="Solar 2" onerror="this.style.display='none'">
-                <img src="solar_3.jpg" alt="Solar 3" onerror="this.style.display='none'">
-                <img src="solar_4.jpg" alt="Solar 4" onerror="this.style.display='none'">
+                <img src="solar_1.jpg" alt="Solar 1" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="solar_2.jpg" alt="Solar 2" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="solar_3.jpg" alt="Solar 3" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="solar_4.jpg" alt="Solar 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -561,11 +596,11 @@
             </div>
             <h4 class="modal-gallery-title">Assembly Photos</h4>
             <div class="modal-gallery">
-                <img src="sand_1.jpg" alt="Sand 1" onerror="this.style.display='none'">
-                <img src="sand_2.jpg" alt="Sand 2" onerror="this.style.display='none'">
-                <img src="sand_3.jpg" alt="Sand 3" onerror="this.style.display='none'">
-                <img src="sand_6.jpg" alt="Sand 4" onerror="this.style.display='none'">
-                <img src="sand_5.jpg" alt="Sand 5" onerror="this.style.display='none'">
+                <img src="sand_1.jpg" alt="Sand 1" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="sand_2.jpg" alt="Sand 2" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="sand_3.jpg" alt="Sand 3" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="sand_6.jpg" alt="Sand 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="sand_5.jpg" alt="Sand 5" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -679,7 +714,13 @@
         <p style="margin-top: 3rem; font-size:0.8rem; opacity:0.5;">&copy; 2025 Tony Sojan. Built with GitHub Pages.</p>
     </footer>
 
+    <div id="fullscreen-overlay" onclick="closeFullscreen()">
+        <span id="fullscreen-close">&times;</span>
+        <img id="fullscreen-image" src="" alt="Fullscreen View">
+    </div>
+
     <script>
+        // Project Modal Functions
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
             document.body.style.overflow = "hidden";
@@ -690,6 +731,19 @@
             document.body.style.overflow = "auto";
         }
 
+        // Fullscreen Image Functions
+        function openFullscreen(src) {
+            var overlay = document.getElementById('fullscreen-overlay');
+            var img = document.getElementById('fullscreen-image');
+            img.src = src;
+            overlay.style.display = 'flex'; // Uses flex to center the image
+        }
+
+        function closeFullscreen() {
+            document.getElementById('fullscreen-overlay').style.display = 'none';
+        }
+
+        // Close modal if user clicks outside of content
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = "none";
