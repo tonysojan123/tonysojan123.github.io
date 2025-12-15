@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -67,7 +66,7 @@
         }
         .nav-links a:hover { color: var(--primary); }
 
-        /* HERO SECTION (HOME) */
+        /* HERO SECTION */
         .hero {
             display: flex;
             align-items: center;
@@ -98,21 +97,21 @@
             font-weight: 600;
             margin-right: 10px;
             margin-bottom: 10px;
+            cursor: pointer;
         }
         .btn-primary { background: var(--primary); color: var(--bg-dark); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2); }
         .btn-outline { border: 2px solid var(--text-muted); color: var(--text-main); }
         .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
 
-        /* UPDATED IMAGE STYLES - SMALLER SIZE */
         .hero-img-container {
-            flex: 0 0 250px; /* Reduced container size */
+            flex: 0 0 250px;
             position: relative;
             display: flex;
             justify-content: center;
         }
         .hero-img {
-            width: 220px; /* Reduced width to make it smaller */
+            width: 220px;
             height: auto;
             max-height: 350px;
             object-fit: cover;
@@ -168,6 +167,10 @@
             overflow: hidden;
             transition: 0.4s;
             border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
         }
         .project-card:hover {
             transform: translateY(-10px);
@@ -177,105 +180,120 @@
         .card-media {
             height: 220px;
             background: #2d3748;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
-            color: #94a3b8;
+            position: relative;
         }
-        .card-media img, .card-media video {
+        .card-media img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s;
         }
-        .card-content { padding: 1.5rem; }
-        .tech-stack { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 8px; }
-        .tech-tag {
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
+        .project-card:hover .card-media img {
+            transform: scale(1.05);
+        }
+        .card-content { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+        .card-content p { flex: 1; }
+        
+        .read-more {
             color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            display: inline-block;
         }
 
-        /* EXPERIENCE TIMELINE & LOGOS */
-        .timeline {
-            border-left: 2px solid rgba(255,255,255,0.1);
-            padding-left: 2rem;
+        /* MODAL (POPUP) STYLES */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
         }
+        .modal-content {
+            background-color: var(--bg-card);
+            margin: 4% auto;
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            width: 85%;
+            max-width: 1000px;
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s;
+        }
+        .close-btn {
+            position: absolute;
+            right: 25px;
+            top: 15px;
+            color: #aaa;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .close-btn:hover { color: var(--primary); }
+        
+        .modal-header { display: flex; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
+        .modal-logo { height: 50px; margin-right: 20px; border-radius: 8px; }
+        .modal-text { font-size: 1.05rem; color: #d1d5db; line-height: 1.8; margin-bottom: 2.5rem; }
+        
+        .modal-gallery-title { color: var(--primary); font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; }
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .modal-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+            cursor: zoom-in;
+        }
+        .modal-gallery img:hover { transform: scale(1.02); border-color: var(--primary); }
+
+        /* EXPERIENCE & EDUCATION */
+        .timeline { border-left: 2px solid rgba(255,255,255,0.1); padding-left: 2rem; }
         .job-item { position: relative; margin-bottom: 4rem; }
         .job-item::before {
-            content: '';
-            width: 16px;
-            height: 16px;
-            background: var(--primary);
-            border-radius: 50%;
-            position: absolute;
-            left: -39px;
-            top: 5px;
-            border: 4px solid var(--bg-dark);
+            content: ''; width: 16px; height: 16px; background: var(--primary);
+            border-radius: 50%; position: absolute; left: -39px; top: 5px; border: 4px solid var(--bg-dark);
         }
         .job-header { display: flex; align-items: center; margin-bottom: 10px; }
-        .company-logo {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            background: white;
-            border-radius: 8px;
-            padding: 5px;
-            margin-right: 15px;
-        }
+        .company-logo { width: 50px; height: 50px; object-fit: contain; background: white; border-radius: 8px; padding: 5px; margin-right: 15px; }
         .job-title { font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
         .job-company { color: var(--primary); font-weight: 600; display: block; }
         .job-date { font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-bottom: 1rem; display: block; }
 
-        /* EDUCATION GRID & LOGOS */
-        .edu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .edu-card {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 12px;
-            border-top: 4px solid var(--accent);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .school-logo {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            background: white;
-            border-radius: 8px;
-            padding: 5px;
-            margin-bottom: 1rem;
-        }
+        .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .edu-card { background: var(--bg-card); padding: 2rem; border-radius: 12px; border-top: 4px solid var(--accent); display: flex; flex-direction: column; align-items: flex-start; }
+        .school-logo { width: 60px; height: 60px; object-fit: contain; background: white; border-radius: 8px; padding: 5px; margin-bottom: 1rem; }
 
-        /* CONTACT & FOOTER */
-        footer {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: #020617;
-            color: var(--text-muted);
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
+        footer { text-align: center; padding: 4rem 2rem; background: #020617; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.05); }
         .contact-info p { margin: 10px 0; font-size: 1.1rem; }
         .social-links { margin-top: 1.5rem; }
         .social-links a { font-size: 1.5rem; margin: 0 15px; color: var(--text-main); }
         .social-links a:hover { color: var(--primary); }
 
-        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
             .hero { flex-direction: column-reverse; text-align: center; padding-top: 4rem; }
             .hero-content { padding-right: 0; }
             .hero-img-container { flex: 0 0 auto; width: 100%; max-width: 300px; margin-bottom: 2rem; }
             .hero-img { width: 220px; }
-            h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
             .about-grid { grid-template-columns: 1fr; }
+            .modal-content { width: 95%; margin: 10% auto; padding: 1.5rem; }
+            .modal-header { flex-direction: column; text-align: center; }
+            .modal-logo { margin: 0 0 15px 0; }
         }
     </style>
 </head>
@@ -295,26 +313,14 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="badge">🚀 5+ Years Professional Experience</div>
-            
             <h1>Engineering Management Graduate & Mechanical Engineer</h1>
-            
-            <p class="subtitle">
-                Bridging the gap between technical engineering and business strategy to build scalable user-centric products.
-            </p>
-            
+            <p class="subtitle">Bridging the gap between technical engineering and business strategy to build scalable user-centric products.</p>
             <div class="cta-group">
-                <a href="resume.pdf" class="btn btn-primary" download>
-                    <i class="fas fa-download"></i> Download Resume
-                </a>
-                <a href="https://www.linkedin.com/in/tony-sojan" class="btn btn-outline" target="_blank">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="mailto:sojan.t@northeastern.edu" class="btn btn-outline">
-                    <i class="fas fa-envelope"></i> sojan.t@northeastern.edu
-                </a>
+                <a href="resume.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Download Resume</a>
+                <a href="https://www.linkedin.com/in/tony-sojan" class="btn btn-outline" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:sojan.t@northeastern.edu" class="btn btn-outline"><i class="fas fa-envelope"></i> sojan.t@northeastern.edu</a>
             </div>
         </div>
-
         <div class="hero-img-container">
             <img src="profile.JPG" alt="Tony Sojan" class="hero-img">
         </div>
@@ -344,55 +350,225 @@
 
     <section id="projects">
         <h2 class="section-title">Featured Projects</h2>
+        <p style="color: #999; margin-bottom: 2rem;">Click on any project to see full details.</p>
+        
         <div class="project-grid">
 
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('modal-clarify')">
                 <div class="card-media">
-                    <img src="helmet.jpg" alt="Eco Helmet" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'padding:20px\'>Upload helmet.jpg</span>'">
+                    <img src="clarify_thumb.jpg" alt="Clarify AI" onerror="this.src='https://via.placeholder.com/300?text=Clarify'">
+                </div>
+                <div class="card-content">
+                    <h3>
+                        <img src="clarify_logo.jpg" alt="Logo" style="height:28px; vertical-align:middle; margin-right:8px; border-radius:4px;"> 
+                        Clarify AI
+                    </h3>
+                    <p>Your Guide to Better Buying. An AI-powered browser extension to solve decision overload.</p>
+                    <span class="read-more">View Case Study &rarr;</span>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="openModal('modal-cork')">
+                <div class="card-media">
+                    <img src="cork_thumb.jpg" alt="Eco Helmet" onerror="this.src='https://via.placeholder.com/300?text=Cork+Helmet'">
                 </div>
                 <div class="card-content">
                     <h3>Eco-Friendly Bicycle Helmet</h3>
                     <p>Designed a low-cost helmet using composite cork material. Research proved agglomerated cork excels in energy absorption.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Product Design</span>
-                        <span class="tech-tag">Material Science</span>
-                    </div>
-                    <br>
-                    <a href="https://www.mdpi.com/1996-1944/17/8/1925" style="color:var(--primary); font-size:0.9rem; font-weight:bold;">Read Publication &rarr;</a>
+                    
+                    <a href="https://www.mdpi.com/1996-1944/17/8/1925" target="_blank" onclick="event.stopPropagation()" style="color:var(--primary); font-size:0.9rem; font-weight:bold; display:block; margin-top:10px;">Read Publication &rarr;</a>
+                    
+                    <span class="read-more" style="margin-top:5px;">View Details &rarr;</span>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('modal-nasa')">
                 <div class="card-media">
-                    <span style="padding:20px">Upload 'nasa.mp4'</span>
+                    <img src="nasa_thumb.jpg" alt="NASA SUITS" onerror="this.src='https://via.placeholder.com/300?text=NASA'">
                 </div>
                 <div class="card-content">
                     <h3>NASA SUITS Haptic Joystick</h3>
-                    <p>Developed a haptic-feedback joystick using an ESP32 and 2-axis servo gimbal for controlling a rover in simulated space environments.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Robotics</span>
-                        <span class="tech-tag">C++ / ESP32</span>
-                    </div>
+                    <p>Developed a haptic-feedback joystick using an ESP32 and 2-axis servo gimbal for controlling a rover.</p>
+                    <span class="read-more">View Details &rarr;</span>
                 </div>
             </div>
 
-            <div class="project-card">
+             <div class="project-card" onclick="openModal('modal-feedback')">
                 <div class="card-media">
-                    <div style="width:100%; height:100%; background: linear-gradient(45deg, #1e293b, #0f172a);"></div>
+                    <img src="feedback_1.jpg" alt="AI Feedback" onerror="this.src='https://via.placeholder.com/300?text=Feedback'">
+                </div>
+                <div class="card-content">
+                    <h3>AI Feedback Analysis</h3>
+                    <p>Sentiment analysis model using Python to categorize and prioritize user feedback.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="openModal('modal-predictive')">
+                <div class="card-media">
+                    <img src="predictive_1.jpg" alt="Predictive Maintenance" onerror="this.src='https://via.placeholder.com/300?text=Predictive'">
                 </div>
                 <div class="card-content">
                     <h3>Predictive Maintenance AI</h3>
-                    <p>Python machine learning model to predict industrial equipment failure by analyzing time-series sensor data.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">IoT</span>
-                    </div>
+                    <p>ML model to predict industrial equipment failure by analyzing time-series sensor data.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="openModal('modal-solar')">
+                <div class="card-media">
+                    <img src="solar_thumb.jpg" alt="Solar Heater" onerror="this.src='https://via.placeholder.com/300?text=Solar'">
+                </div>
+                <div class="card-content">
+                    <h3>Solar Water Heater</h3>
+                    <p>Working model of a solar water heating system using copper tubes and insulated boxing.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="openModal('modal-sand')">
+                <div class="card-media">
+                    <img src="sand_thumb.jpg" alt="Sand Extraction" onerror="this.src='https://via.placeholder.com/300?text=Sand'">
+                </div>
+                <div class="card-content">
+                    <h3>Sand Extraction System</h3>
+                    <p>Motor-driven sand extraction system utilizing a Pelton wheel and conveyor belt.</p>
+                    <span class="read-more">View Details &rarr;</span>
                 </div>
             </div>
 
         </div>
     </section>
+
+    <div id="modal-clarify" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-clarify')">&times;</span>
+            <div class="modal-header">
+                <img src="clarify_logo.jpg" alt="Clarify Logo" class="modal-logo">
+                <h2 style="margin:0;">Clarify AI: Your Guide to Better Buying</h2>
+            </div>
+            <div class="modal-text">
+                <p>Clarify is an AI-powered browser extension designed to solve one of the most pervasive problems in modern online shopping: decision overload. As the digital commerce ecosystem grows more fragmented and saturated with unreliable reviews, sponsored content, and inconsistent product information, consumers increasingly struggle to make confident purchase decisions.</p>
+                <p>Clarify provides a simple but powerful solution: an AI-powered browser extension that consolidates product research into a single, accessible view. Instead of requiring users to jump between multiple tabs and platforms, Clarify analyzes information behind the scenes and then presents a clean summary directly on the product page.</p>
+            </div>
+            <h4 class="modal-gallery-title">Project Gallery</h4>
+            <div class="modal-gallery">
+                <img src="clarify_1.jpg" alt="Clarify 1" onerror="this.style.display='none'">
+                <img src="clarify_2.jpg" alt="Clarify 2" onerror="this.style.display='none'">
+                <img src="clarify_3.jpg" alt="Clarify 3" onerror="this.style.display='none'">
+                <img src="clarify_4.jpg" alt="Clarify 4" onerror="this.style.display='none'">
+                <img src="clarify_5.jpg" alt="Clarify 5" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-cork" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-cork')">&times;</span>
+            <div class="modal-header">
+                <h2 style="margin:0;">Eco-Friendly Bicycle Helmet</h2>
+            </div>
+            <div class="modal-text">
+                <p>Designed a low-cost bicycle helmet utilizing sustainable composite cork materials. Through rigorous testing, we discovered that agglomerated cork combined with polyurethane excels in energy absorption and dimensional recovery, offering a viable eco-friendly alternative to traditional synthetic liners.</p>
+                <br>
+                <a href="https://www.mdpi.com/1996-1944/17/8/1925" target="_blank" class="btn btn-primary" style="margin-top:10px;">Read Published Paper</a>
+            </div>
+            <h4 class="modal-gallery-title">Prototypes & Testing</h4>
+            <div class="modal-gallery">
+                <img src="cork_1.jpg" alt="Cork 1" onerror="this.style.display='none'">
+                <img src="cork_2.jpg" alt="Cork 2" onerror="this.style.display='none'">
+                <img src="cork_3.jpg" alt="Cork 3" onerror="this.style.display='none'">
+                <img src="cork_4.jpg" alt="Cork 4" onerror="this.style.display='none'">
+                <img src="cork_5.jpg" alt="Cork 5" onerror="this.style.display='none'">
+                <img src="cork_8.jpg" alt="Cork 8" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-nasa" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-nasa')">&times;</span>
+            <div class="modal-header">
+                <h2 style="margin:0;">NASA SUITS Haptic Joystick</h2>
+            </div>
+            <div class="modal-text">
+                <p>Developed a haptic-feedback joystick using an ESP32 and 2-axis servo gimbal for controlling a rover in simulated space environments. The system provides force-feedback to the operator, improving control precision in remote operation scenarios.</p>
+            </div>
+            <h4 class="modal-gallery-title">Hardware & Design</h4>
+            <div class="modal-gallery">
+                <img src="nasa_1.jpg" alt="NASA 1" onerror="this.style.display='none'">
+                <img src="nasa_3.jpg" alt="NASA 3" onerror="this.style.display='none'">
+                <img src="nasa_4.jpg" alt="NASA 4" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-feedback" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-feedback')">&times;</span>
+            <h2>AI-Powered User Feedback Analysis</h2>
+            <div class="modal-text">
+                <p>Developed a sentiment analysis model using Python and Scikit-learn to automatically categorize and prioritize user feedback from diverse sources, including app reviews and support tickets. The platform enabled a data-driven approach to identifying critical issues, informing feature prioritization and roadmap planning.</p>
+                <br>
+                <a href="https://github.com/tonysojan123/AI-Feedback-Analysis-Platform" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> View Source Code</a>
+            </div>
+            <h4 class="modal-gallery-title">Dashboard View</h4>
+            <div class="modal-gallery">
+                <img src="feedback_1.jpg" alt="Feedback Dashboard" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-predictive" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-predictive')">&times;</span>
+            <h2>Predictive Maintenance AI</h2>
+            <div class="modal-text">
+                 <p>Developed a Python machine learning model to predict industrial equipment failure by analyzing time-series sensor data and designed a dashboard to visualize equipment health.</p>
+                 <br>
+                 <a href="https://github.com/tonysojan123/CNC-Predictive-Maintenance" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> View Source Code</a>
+            </div>
+            <h4 class="modal-gallery-title">System Overview</h4>
+            <div class="modal-gallery">
+                <img src="predictive_1.jpg" alt="Predictive System" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-solar" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-solar')">&times;</span>
+            <h2>Solar Water Heater</h2>
+            <div class="modal-text">
+                <p>Designed and built a working model of a solar water heating system using copper tubes arranged in an insulated wooden box, where water is heated by sunlight as it circulates through the system.</p>
+            </div>
+            <h4 class="modal-gallery-title">Build Process</h4>
+            <div class="modal-gallery">
+                <img src="solar_1.jpg" alt="Solar 1" onerror="this.style.display='none'">
+                <img src="solar_2.jpg" alt="Solar 2" onerror="this.style.display='none'">
+                <img src="solar_3.jpg" alt="Solar 3" onerror="this.style.display='none'">
+                <img src="solar_4.jpg" alt="Solar 4" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-sand" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-sand')">&times;</span>
+            <h2>Sand Extraction System</h2>
+            <div class="modal-text">
+                <p>Designed and assembled a motor-driven sand extraction system utilizing a Pelton wheel and conveyor belt powered by a chain-driven electric motor. This project focused on optimizing material transport efficiency.</p>
+            </div>
+            <h4 class="modal-gallery-title">Assembly Photos</h4>
+            <div class="modal-gallery">
+                <img src="sand_1.jpg" alt="Sand 1" onerror="this.style.display='none'">
+                <img src="sand_2.jpg" alt="Sand 2" onerror="this.style.display='none'">
+                <img src="sand_3.jpg" alt="Sand 3" onerror="this.style.display='none'">
+                <img src="sand_4.jpg" alt="Sand 4" onerror="this.style.display='none'">
+                <img src="sand_5.jpg" alt="Sand 5" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
 
     <section id="experience">
         <h2 class="section-title">Professional Experience</h2>
@@ -469,22 +645,22 @@
                 <img src="northeastern.jpg" alt="Northeastern Logo" class="school-logo" onerror="this.src='https://via.placeholder.com/60?text=NU'">
                 <h4>Northeastern University</h4>
                 <p><strong>Master of Science in Engineering Management</strong></p>
-                <p style="font-size:0.9rem; color:var(--text-muted)">May 2026</p>
-                <p style="margin-top:10px; font-size:0.9rem;">Vice President – Energy Systems Society</p>
+                <p style="font-size:0.9rem; color:var(--text-muted)">Expected May 2026</p>
+                <p style="margin-top:10px; font-size:0.9rem;">Vice President – Energy Systems Society.</p>
             </div>
             
             <div class="edu-card">
                 <img src="aut.jpg" alt="AUT Logo" class="school-logo" onerror="this.src='https://via.placeholder.com/60?text=AUT'">
                 <h4>Auckland University of Technology</h4>
                 <p><strong>Bachelor of Engineering Technology in Mechanical Engineering</strong></p>
-                <p style="font-size:0.9rem; color:var(--text-muted)">Graduated Jun 2023</p>
+                <p style="font-size:0.9rem; color:var(--text-muted)">Graduated Jun 2023.</p>
             </div>
             
              <div class="edu-card">
                 <img src="wintec.jpg" alt="Wintec Logo" class="school-logo" onerror="this.src='https://via.placeholder.com/60?text=W'">
                 <h4>Waikato Institute of Technology</h4>
                 <p><strong>Diploma in Mechanical Engineering (Assosciate Degree) </strong></p>
-                <p style="font-size:0.9rem; color:var(--text-muted)">Graduated Nov 2017</p>
+                <p style="font-size:0.9rem; color:var(--text-muted)">Graduated Nov 2017.</p>
             </div>
             
         </div>
@@ -492,19 +668,35 @@
 
     <footer id="contact">
         <h2 style="margin-bottom: 2rem;">Let's Connect</h2>
-        
         <div class="contact-info">
             <p><i class="fas fa-map-marker-alt" style="color:var(--primary); margin-right:10px;"></i> Boston, MA</p>
             <p><i class="fas fa-envelope" style="color:var(--primary); margin-right:10px;"></i> sojan.t@northeastern.edu</p>
         </div>
-
         <div class="social-links">
             <a href="https://www.linkedin.com/in/tony-sojan" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="mailto:sojan.t@northeastern.edu"><i class="fas fa-envelope"></i></a>
         </div>
-        
         <p style="margin-top: 3rem; font-size:0.8rem; opacity:0.5;">&copy; 2025 Tony Sojan. Built with GitHub Pages.</p>
     </footer>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
 
 </body>
 </html>
