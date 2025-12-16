@@ -161,6 +161,7 @@
 
         /* ABOUT SECTION & SKILLS MATRIX */
         .about-text { margin-bottom: 3rem; max-width: 900px; }
+        .about-text p { margin-bottom: 1.5rem; }
         
         .skills-heading {
             font-size: 1.5rem;
@@ -341,6 +342,23 @@
         }
         #fullscreen-close:hover { color: var(--primary); }
 
+        /* ARROW BUTTONS */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 50px;
+            cursor: pointer;
+            padding: 20px;
+            user-select: none;
+            transition: 0.2s;
+            z-index: 3002;
+        }
+        .nav-btn:hover { color: var(--primary); }
+        #prev-btn { left: 20px; }
+        #next-btn { right: 20px; }
+
         /* EXPERIENCE & EDUCATION */
         .timeline { border-left: 2px solid rgba(255,255,255,0.1); padding-left: 2rem; }
         .job-item { position: relative; margin-bottom: 4rem; }
@@ -384,6 +402,7 @@
             .modal-content { width: 95%; margin: 10% auto; padding: 1.5rem; }
             .modal-header { flex-direction: column; text-align: center; }
             .modal-logo { margin: 0 0 15px 0; }
+            .nav-btn { font-size: 30px; padding: 10px; }
         }
     </style>
 </head>
@@ -404,8 +423,13 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="badge">🚀 5+ Years Professional Experience</div>
-            <h1>Engineering Management Graduate & Mechanical Engineer</h1>
-            <p class="subtitle">Bridging the gap between complex engineering challenges and business strategy to deliver scalable, user-centric products.</p>
+            <h1>Hi, I’m Tony Sojan.</h1>
+            <h2 class="hero-title">Engineering Management Graduate & Mechanical Engineer</h2>
+            
+            <p class="subtitle">
+                Bridging complex engineering challenges and business strategy to deliver scalable, user-centric products.
+            </p>
+            
             <div class="cta-group">
                 <a href="resume.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Download Resume</a>
                 <a href="https://www.linkedin.com/in/tony-sojan" class="btn btn-outline" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -421,9 +445,13 @@
         <h2 class="section-title">About Me</h2>
         
         <div class="about-text">
-            <p>I am an <strong>Engineering Management graduate</strong> from Northeastern University with a strong foundation in Mechanical Engineering. I specialize in <strong>Product Development, Product Management, and Project Management</strong>, expertly bridging the gap between complex engineering challenges and strategic business goals.</p>
-            <br>
-            <p>With extensive experience in manufacturing, product development, and project management, I am driven by a singular mission: <strong>to make a tangible difference in the world by building products that matter.</strong></p>
+            <p>I’m an <strong>Engineering Management graduate</strong> from Northeastern University and a <strong>Mechanical Engineer</strong> with over five years of professional experience across project engineering, product management, and manufacturing. I thrive at the intersection of engineering and business, transforming complex technical challenges into scalable, customer-focused product solutions.</p>
+            
+            <p>My approach to product development is pragmatic and data-driven. I specialize in defining customer problems, translating requirements into technical solutions, and managing the product lifecycle from concept and development through launch and optimization. My experience includes hands-on product development, translating customer feedback into actionable insights, AI-enabled workflow optimization, collaborating closely with customers and stakeholders, and leading cross-functional teams to deliver outcomes across the full product and project lifecycle.</p>
+            
+            <p>From the shop floor to strategic decision-making environments, my journey has equipped me with the ability to turn data into actionable insights, align stakeholders around clear roadmaps, and execute with precision in fast-paced settings. I am particularly passionate about building products that elevate user experiences while delivering long-term, sustainable value for businesses.</p>
+            
+            <p>With a strong foundation in manufacturing, product development, and project management, I am driven by a singular mission: <strong>to build thoughtful, impactful products that make a tangible difference in the world.</strong></p>
         </div>
 
         <h3 class="skills-heading">Skills</h3>
@@ -597,11 +625,11 @@
             </div>
             <h4 class="modal-gallery-title">Project Gallery</h4>
             <div class="modal-gallery">
-                <img src="clarify_1.png" alt="Clarify 1" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="clarify_2.png" alt="Clarify 2" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="clarify_3.png" alt="Clarify 3" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="clarify_4.png" alt="Clarify 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="clarify_5.png" alt="Clarify 5" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="clarify_1.png" alt="Clarify 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="clarify_2.png" alt="Clarify 2" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="clarify_3.png" alt="Clarify 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="clarify_4.png" alt="Clarify 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="clarify_5.png" alt="Clarify 5" onclick="openFullscreen(this)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -620,12 +648,12 @@
             </div>
             <h4 class="modal-gallery-title">Prototypes & Testing</h4>
             <div class="modal-gallery">
-                <img src="cork_1.jpg" alt="Cork 1" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="cork_2.jpg" alt="Cork 2" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="cork_3.PNG" alt="Cork 3" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="cork_4.jpg" alt="Cork 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="cork_5.jpg" alt="Cork 5" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="cork_8.jpg" alt="Cork 8" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="cork_1.jpg" alt="Cork 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="cork_2.jpg" alt="Cork 2" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="cork_3.PNG" alt="Cork 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="cork_4.jpg" alt="Cork 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="cork_5.jpg" alt="Cork 5" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="cork_8.jpg" alt="Cork 8" onclick="openFullscreen(this)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -642,10 +670,10 @@
             </div>
             <h4 class="modal-gallery-title">Visualization Gallery</h4>
             <div class="modal-gallery">
-                <img src="ar_1.jpg" alt="AR 1" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="ar_2.jpg" alt="AR 2" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="ar_3.jpg" alt="AR 3" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="ar_4.jpg" alt="AR 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="ar_1.jpg" alt="AR 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="ar_2.jpg" alt="AR 2" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="ar_3.jpg" alt="AR 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="ar_4.jpg" alt="AR 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -661,9 +689,9 @@
             </div>
             <h4 class="modal-gallery-title">Hardware & Design</h4>
             <div class="modal-gallery">
-                <img src="nasa_1.jpg" alt="NASA 1" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="nasa_3.jpg" alt="NASA 3" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="nasa_4.jpg" alt="NASA 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="nasa_1.jpg" alt="NASA 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="nasa_3.jpg" alt="NASA 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="nasa_4.jpg" alt="NASA 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -679,7 +707,7 @@
             </div>
             <h4 class="modal-gallery-title">Dashboard View</h4>
             <div class="modal-gallery">
-                <img src="feedback_1.png" alt="Feedback Dashboard" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="feedback_1.png" alt="Feedback Dashboard" onclick="openFullscreen(this)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -695,7 +723,7 @@
             </div>
             <h4 class="modal-gallery-title">System Overview</h4>
             <div class="modal-gallery">
-                <img src="predictive_1.jpg" alt="Predictive System" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="predictive_1.jpg" alt="Predictive System" onclick="openFullscreen(this)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -709,10 +737,10 @@
             </div>
             <h4 class="modal-gallery-title">Build Process</h4>
             <div class="modal-gallery">
-                <img src="solar_1.jpg" alt="Solar 1" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="solar_2.jpg" alt="Solar 2" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="solar_3.jpg" alt="Solar 3" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="solar_4.jpg" alt="Solar 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="solar_1.jpg" alt="Solar 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="solar_2.jpg" alt="Solar 2" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="solar_3.jpg" alt="Solar 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="solar_4.jpg" alt="Solar 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -726,11 +754,11 @@
             </div>
             <h4 class="modal-gallery-title">Assembly Photos</h4>
             <div class="modal-gallery">
-                <img src="sand_1.jpg" alt="Sand 1" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="sand_2.jpg" alt="Sand 2" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="sand_3.jpg" alt="Sand 3" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="sand_6.jpg" alt="Sand 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
-                <img src="sand_5.jpg" alt="Sand 5" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="sand_1.jpg" alt="Sand 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="sand_2.jpg" alt="Sand 2" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="sand_3.jpg" alt="Sand 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="sand_6.jpg" alt="Sand 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="sand_5.jpg" alt="Sand 5" onclick="openFullscreen(this)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
@@ -744,7 +772,7 @@
                     <img src="draeger.jpg" alt="Draeger Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=D'">
                     <div>
                         <div class="job-title">Project Manager Intern</div>
-                        <span class="job-company">Draeger | Andover, MA</span>
+                        <span class="job-company">Draeger | Andover, United States</span>
                     </div>
                 </div>
                 <span class="job-date" style="padding-left: 65px;">May 2025 – Aug 2025</span>
@@ -764,7 +792,7 @@
                     <img src="solarzero.jpg" alt="SolarZero Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=S'">
                     <div>
                         <div class="job-title">Product Manager</div>
-                        <span class="job-company">SolarZero | New Zealand</span>
+                        <span class="job-company">SolarZero | Auckland, New Zealand</span>
                     </div>
                 </div>
                 <span class="job-date" style="padding-left: 65px;">Jun 2023 – Nov 2023</span>
@@ -784,7 +812,7 @@
                     <img src="velohawk.jpg" alt="Velohawk Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=V'">
                     <div>
                         <div class="job-title">Product Design Engineer</div>
-                        <span class="job-company">Velohawk | New Zealand</span>
+                        <span class="job-company">Velohawk | Auckland, New Zealand</span>
                     </div>
                 </div>
                 <span class="job-date" style="padding-left: 65px;">Mar 2023 – Jun 2023</span>
@@ -802,7 +830,7 @@
                     <img src="cullen.jpg" alt="Cullen Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=C'">
                     <div>
                         <div class="job-title">Project Engineer</div>
-                        <span class="job-company">Cullen Engineering | New Zealand</span>
+                        <span class="job-company">Cullen Engineering | Paeroa, New Zealand</span>
                     </div>
                 </div>
                 <span class="job-date" style="padding-left: 65px;">Jul 2019 – Dec 2021</span>
@@ -822,7 +850,7 @@
                     <img src="longveld.jpg" alt="Longveld Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=L'">
                     <div>
                         <div class="job-title">CNC Machinist</div>
-                        <span class="job-company">Longveld | New Zealand</span>
+                        <span class="job-company">Longveld | Hamilton, New Zealand</span>
                     </div>
                 </div>
                 <span class="job-date" style="padding-left: 65px;">Dec 2017 – Jun 2019</span>
@@ -881,7 +909,9 @@
 
     <div id="fullscreen-overlay" onclick="closeFullscreen()">
         <span id="fullscreen-close">&times;</span>
+        <div id="prev-btn" class="nav-btn" onclick="prevImage(event)">&#10094;</div>
         <img id="fullscreen-image" src="" alt="Fullscreen View">
+        <div id="next-btn" class="nav-btn" onclick="nextImage(event)">&#10095;</div>
     </div>
 
     <script>
@@ -919,12 +949,66 @@
             document.body.style.overflow = "auto";
         }
 
-        // Fullscreen Image Functions
-        function openFullscreen(src) {
-            var overlay = document.getElementById('fullscreen-overlay');
-            var img = document.getElementById('fullscreen-image');
-            img.src = src;
-            overlay.style.display = 'flex'; // Uses flex to center the image
+        // --- FULLSCREEN IMAGE LOGIC ---
+        let currentImages = [];
+        let currentIndex = 0;
+
+        function openFullscreen(imgElement) {
+            const overlay = document.getElementById('fullscreen-overlay');
+            
+            // 1. Find the parent gallery div
+            const galleryDiv = imgElement.closest('.modal-gallery');
+            
+            // 2. Get all images in this specific gallery
+            const images = galleryDiv.querySelectorAll('img');
+            
+            // 3. Populate currentImages array
+            currentImages = Array.from(images).map(img => img.src);
+            
+            // 4. Find index of clicked image
+            currentIndex = currentImages.indexOf(imgElement.src);
+            
+            // 5. Update and Show
+            updateFullscreenImage();
+            overlay.style.display = 'flex';
+        }
+
+        function updateFullscreenImage() {
+            const fullImg = document.getElementById('fullscreen-image');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            fullImg.src = currentImages[currentIndex];
+
+            // Handle Left Arrow (Hide if first image)
+            if (currentIndex === 0) {
+                prevBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = 'block';
+            }
+
+            // Handle Right Arrow (Hide if last image)
+            if (currentIndex === currentImages.length - 1) {
+                nextBtn.style.display = 'none';
+            } else {
+                nextBtn.style.display = 'block';
+            }
+        }
+
+        function nextImage(e) {
+            e.stopPropagation(); // Prevent closing overlay
+            if (currentIndex < currentImages.length - 1) {
+                currentIndex++;
+                updateFullscreenImage();
+            }
+        }
+
+        function prevImage(e) {
+            e.stopPropagation(); // Prevent closing overlay
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateFullscreenImage();
+            }
         }
 
         function closeFullscreen() {
