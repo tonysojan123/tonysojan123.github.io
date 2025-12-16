@@ -162,7 +162,6 @@
         /* ABOUT SECTION & SKILLS MATRIX */
         .about-text { margin-bottom: 3rem; max-width: 900px; }
         
-        /* New Subheading Style */
         .skills-heading {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
@@ -516,6 +515,17 @@
                 </div>
             </div>
 
+            <div class="project-card" onclick="openModal('modal-ar')">
+                <div class="card-media">
+                    <img src="ar_thumb.jpg" alt="AR/VR Visualization" onerror="this.src='https://via.placeholder.com/300?text=AR+VR'">
+                </div>
+                <div class="card-content">
+                    <h3>AR/VR House Visualization</h3>
+                    <p>Immersive architectural tool using Unity & Meta Quest 3 for VR walkthroughs and Hoverlay for 1:1 AR on-site projection.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+            </div>
+
             <div class="project-card" onclick="openModal('modal-nasa')">
                 <div class="card-media">
                     <img src="nasa_thumb.jpg" alt="NASA SUITS" onerror="this.src='https://via.placeholder.com/300?text=NASA'">
@@ -616,6 +626,26 @@
                 <img src="cork_4.jpg" alt="Cork 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
                 <img src="cork_5.jpg" alt="Cork 5" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
                 <img src="cork_8.jpg" alt="Cork 8" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ar" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-ar')">&times;</span>
+            <h2>AR/VR House Visualization Project</h2>
+            <div class="modal-text">
+                <p>To address the gap between 2D blueprints and physical reality in architecture, I developed an immersive visualization tool using AR and VR technologies. This project enables homeowners and builders to experience a high-fidelity, interactive 3D model of a house before construction begins, significantly reducing costly design iterations and spatial conflicts.</p>
+                <p>The development followed two distinct tracks:
+                    <br><strong>1. VR Implementation (Unity & Meta Quest 3):</strong> Created a fully immersive, interactive walkthrough allowing users to "be inside" the house to assess scale and spatial relationships.
+                    <br><strong>2. Web-AR Implementation (Hoverlay):</strong> Enabled a full-scale 1:1 projection of the house model onto real-world construction sites via mobile phones, facilitating on-site visualization without dedicated headsets.</p>
+            </div>
+            <h4 class="modal-gallery-title">Visualization Gallery</h4>
+            <div class="modal-gallery">
+                <img src="ar_1.jpg" alt="AR 1" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="ar_2.jpg" alt="AR 2" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="ar_3.jpg" alt="AR 3" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
+                <img src="ar_4.jpg" alt="AR 4" onclick="openFullscreen(this.src)" onerror="this.style.display='none'">
             </div>
         </div>
     </div>
