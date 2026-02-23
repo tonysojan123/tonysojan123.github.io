@@ -308,6 +308,18 @@
         }
         .modal-gallery img:hover { transform: scale(1.02); border-color: var(--primary); }
 
+        /* NEW: VIDEO WRAPPER (for audio_video.mp4) */
+        .modal-video {
+            margin: 0 0 2rem 0;
+        }
+        .modal-video video {
+            width: 100%;
+            max-height: 520px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: #000;
+        }
+
         /* FULLSCREEN IMAGE OVERLAY */
         #fullscreen-overlay {
             display: none;
@@ -517,6 +529,21 @@
         
         <div class="project-grid">
 
+            <!-- ✅ NEW PROJECT: AI WEARABLE AUDIO RECORDER -->
+            <div class="project-card" onclick="openModal('modal-audio')">
+                <div class="card-media">
+                    <img src="audio_thumb.jpeg" alt="AI Wearable Audio Recorder" onerror="this.src='https://via.placeholder.com/300?text=AI+Wearable+Audio'">
+                </div>
+                <div class="card-content">
+                    <h3>
+                        <img src="audio_logo.jpeg" alt="Logo" style="height:28px; vertical-align:middle; margin-right:8px; border-radius:4px;" onerror="this.style.display='none'">
+                        AI Wearable Audio Recorder & Note-taking Assistant
+                    </h3>
+                    <p>Designed and built a compact BLE wearable in a custom 3D-printed enclosure to capture conversations hands-free and generate real-time transcripts and summaries via the Omi iOS app.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+            </div>
+
             <div class="project-card" onclick="openModal('modal-clarify')">
                 <div class="card-media">
                     <img src="clarify_thumb.jpg" alt="Clarify AI" onerror="this.src='https://via.placeholder.com/300?text=Clarify'">
@@ -613,6 +640,81 @@
 
         </div>
     </section>
+
+    <!-- ✅ NEW MODAL: AI WEARABLE AUDIO RECORDER -->
+    <div id="modal-audio" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-audio')">&times;</span>
+
+            <div class="modal-header">
+                <img src="audio_logo.jpeg" alt="Audio Logo" class="modal-logo" onerror="this.style.display='none'">
+                <h2 style="margin:0;">AI Wearable Audio Recorder & Note-taking Assistant</h2>
+            </div>
+
+            <div class="modal-text">
+                <p>
+                    I designed and built a fully functional <strong>AI Wearable Audio Recorder & Note-taking Assistant</strong>. I set out to build a
+                    “second brain” — a device that could seamlessly capture daily conversations and meetings, then automatically generate organized
+                    transcripts and summaries. The goal was a frictionless user experience where capturing a thought requires <strong>zero screen time</strong>.
+                </p>
+
+                <p>
+                    The solution is a <strong>pendant-style BLE wearable</strong> powered by a <strong>Seeed Studio XIAO nRF52840 Sense</strong>.
+                    The device captures audio and streams it via <strong>Bluetooth Low Energy</strong> to the <strong>Omi iOS app</strong>,
+                    which performs transcription and generates summaries. This project was a fantastic challenge in end-to-end product prototyping,
+                    combining mechanical design, electronics fabrication, embedded firmware bring-up, and AI software integration.
+                </p>
+
+                <h4 class="modal-gallery-title" style="margin-top: 1.5rem;">Workflow</h4>
+                <p style="color:#d1d5db;">
+                    Power ON → BLE pair → capture conversation → transcript + summary generated in-app.
+                </p>
+
+                <h4 class="modal-gallery-title" style="margin-top: 1.5rem;">The Build Breakdown</h4>
+                <ul style="list-style: disc; margin-left: 1.25rem; color:#d1d5db;">
+                    <li><strong>⚙️ Hardware:</strong> At the heart is the tiny but powerful Seeed Studio XIAO nRF52840 Sense. I soldered and integrated a Li-Po battery and a slide switch into a custom, ultra-compact footprint, balancing physical size constraints with the power demands of continuous audio streaming.</li>
+                    <li><strong>🔧 Mechanical:</strong> I designed a snap-fit enclosure in CAD and 3D printed it using a Prusa i3 MK3S+. Achieving the tight tolerances needed to securely house the electronics without using fasteners was a great iterative design process.</li>
+                    <li><strong>🧠 Software & AI:</strong> The device uses BLE running Omi DevKit firmware to stream audio directly to the Omi AI iOS app, which handles real-time transcription and summarization.</li>
+                </ul>
+
+                <p style="margin-top: 1.25rem;">
+                    What made this build so interesting was bringing together multiple disciplines — electronics assembly, additive manufacturing,
+                    embedded systems, and AI software integration — into a single palm-sized wearable. Going from a microcontroller board and battery
+                    to a sleek device that successfully processed its first conversation was an incredibly satisfying moment.
+                </p>
+
+                <h4 class="modal-gallery-title" style="margin-top: 1.5rem;">Key tradeoffs</h4>
+                <p style="color:#d1d5db;">
+                    Small form factor and wearability vs battery life, BLE reliability, and enclosure tolerances.
+                </p>
+
+                <h4 class="modal-gallery-title" style="margin-top: 1.5rem;">Outcome</h4>
+                <p style="color:#d1d5db;">
+                    Successfully paired, captured a real conversation, and produced transcripts and summaries end-to-end.
+                </p>
+            </div>
+
+            <h4 class="modal-gallery-title">Demo Video</h4>
+            <div class="modal-video">
+                <video controls preload="metadata" poster="audio_thumb.jpeg">
+                    <source src="audio_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <h4 class="modal-gallery-title">Project Gallery</h4>
+            <div class="modal-gallery">
+                <img src="audio_1.jpeg" alt="Audio 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="audio_2.jpeg" alt="Audio 2" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="audio_3.jpeg" alt="Audio 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="audio_4.jpeg" alt="Audio 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="audio_5.jpeg" alt="Audio 5" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="audio_6.jpeg" alt="Audio 6" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="audio_7.jpeg" alt="Audio 7" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="audio_8.jpeg" alt="Audio 8" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
 
     <div id="modal-clarify" class="modal">
         <div class="modal-content">
