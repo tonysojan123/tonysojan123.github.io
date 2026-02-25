@@ -304,7 +304,7 @@
         }
         .modal-gallery img:hover { transform: scale(1.02); border-color: var(--primary); }
 
-        /* NEW: VIDEO WRAPPER (for audio_video.mp4) */
+        /* VIDEO WRAPPER */
         .modal-video { margin: 0 0 2rem 0; }
         .modal-video video {
             width: 100%;
@@ -523,7 +523,7 @@
         
         <div class="project-grid">
 
-            <!-- ✅ NEW PROJECT: AI WEARABLE AUDIO RECORDER -->
+            <!-- ✅ 1) AI WEARABLE AUDIO RECORDER -->
             <div class="project-card" onclick="openModal('modal-audio')">
                 <div class="card-media">
                     <img src="audio_thumb.jpeg" alt="AI Wearable Audio Recorder" onerror="this.src='https://via.placeholder.com/300?text=AI+Wearable+Audio'">
@@ -538,13 +538,14 @@
                 </div>
             </div>
 
+            <!-- Clarify -->
             <div class="project-card" onclick="openModal('modal-clarify')">
                 <div class="card-media">
                     <img src="clarify_thumb.jpg" alt="Clarify AI" onerror="this.src='https://via.placeholder.com/300?text=Clarify'">
                 </div>
                 <div class="card-content">
                     <h3>
-                        <img src="clarify_logo.jpg" alt="Logo" style="height:28px; vertical-align:middle; margin-right:8px; border-radius:4px;"> 
+                        <img src="clarify_logo.jpg" alt="Logo" style="height:28px; vertical-align:middle; margin-right:8px; border-radius:4px;" onerror="this.style.display='none'"> 
                         Clarify AI
                     </h3>
                     <p>Your Guide to Better Buying. An AI-powered browser extension to solve decision overload.</p>
@@ -552,6 +553,7 @@
                 </div>
             </div>
 
+            <!-- Cork -->
             <div class="project-card" onclick="openModal('modal-cork')">
                 <div class="card-media">
                     <img src="cork_thumb.png" alt="Eco Helmet" onerror="this.src='https://via.placeholder.com/300?text=Cork+Helmet'">
@@ -566,6 +568,7 @@
                 </div>
             </div>
 
+            <!-- AR -->
             <div class="project-card" onclick="openModal('modal-ar')">
                 <div class="card-media">
                     <img src="ar_thumb.jpg" alt="AR/VR Visualization" onerror="this.src='https://via.placeholder.com/300?text=AR+VR'">
@@ -577,6 +580,7 @@
                 </div>
             </div>
 
+            <!-- NASA -->
             <div class="project-card" onclick="openModal('modal-nasa')">
                 <div class="card-media">
                     <img src="nasa_thumb.jpg" alt="NASA SUITS" onerror="this.src='https://via.placeholder.com/300?text=NASA'">
@@ -588,7 +592,8 @@
                 </div>
             </div>
 
-             <div class="project-card" onclick="openModal('modal-feedback')">
+            <!-- Feedback -->
+            <div class="project-card" onclick="openModal('modal-feedback')">
                 <div class="card-media">
                     <img src="feedback_1.png" alt="AI Feedback" onerror="this.src='https://via.placeholder.com/300?text=Feedback'">
                 </div>
@@ -599,6 +604,7 @@
                 </div>
             </div>
 
+            <!-- Predictive -->
             <div class="project-card" onclick="openModal('modal-predictive')">
                 <div class="card-media">
                     <img src="predictive_1.jpg" alt="Predictive Maintenance" onerror="this.src='https://via.placeholder.com/300?text=Predictive'">
@@ -610,6 +616,7 @@
                 </div>
             </div>
 
+            <!-- Solar -->
             <div class="project-card" onclick="openModal('modal-solar')">
                 <div class="card-media">
                     <img src="solar_thumb.jpg" alt="Solar Heater" onerror="this.src='https://via.placeholder.com/300?text=Solar'">
@@ -621,6 +628,7 @@
                 </div>
             </div>
 
+            <!-- Sand -->
             <div class="project-card" onclick="openModal('modal-sand')">
                 <div class="card-media">
                     <img src="sand_thumb.jpg" alt="Sand Extraction" onerror="this.src='https://via.placeholder.com/300?text=Sand'">
@@ -635,7 +643,11 @@
         </div>
     </section>
 
-    <!-- ✅ NEW MODAL: AI WEARABLE AUDIO RECORDER -->
+    <!-- =========================================================
+         MODALS (ALL PROJECT DETAILS)
+         ========================================================= -->
+
+    <!-- ✅ AI WEARABLE AUDIO RECORDER MODAL -->
     <div id="modal-audio" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-audio')">&times;</span>
@@ -673,8 +685,7 @@
 
                 <p style="margin-top: 1.25rem;">
                     What made this build so interesting was bringing together multiple disciplines — electronics assembly, additive manufacturing,
-                    embedded systems, and AI software integration — into a single palm-sized wearable. Going from a microcontroller board and battery
-                    to a sleek device that successfully processed its first conversation was an incredibly satisfying moment.
+                    embedded systems, and AI software integration — into a single palm-sized wearable.
                 </p>
 
                 <h4 class="modal-gallery-title" style="margin-top: 1.5rem;">Key tradeoffs</h4>
@@ -710,14 +721,172 @@
         </div>
     </div>
 
-    <!-- (Other modals remain unchanged in your file; kept as-is) -->
-    <!-- ... Your existing modals for Clarify, Cork, AR, NASA, Feedback, Predictive, Solar, Sand ... -->
+    <!-- ✅ Clarify Modal -->
+    <div id="modal-clarify" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-clarify')">&times;</span>
+            <div class="modal-header">
+                <img src="clarify_logo.jpg" alt="Clarify Logo" class="modal-logo" onerror="this.style.display='none'">
+                <h2 style="margin:0;">Clarify AI: Your Guide to Better Buying</h2>
+            </div>
+            <div class="modal-text">
+                <p>Clarify is an AI-powered browser extension designed to solve one of the most pervasive problems in modern online shopping: decision overload. As the digital commerce ecosystem grows more fragmented and saturated with unreliable reviews, sponsored content, and inconsistent product information, consumers increasingly struggle to make confident purchase decisions.</p>
+                <p>Clarify provides a simple but powerful solution: an AI-powered browser extension that consolidates product research into a single, accessible view. Instead of requiring users to jump between multiple tabs and platforms, Clarify analyzes information behind the scenes and then presents a clean summary directly on the product page.</p>
+            </div>
+            <h4 class="modal-gallery-title">Project Gallery</h4>
+            <div class="modal-gallery">
+                <img src="clarify_1.png" alt="Clarify 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="clarify_2.png" alt="Clarify 2" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="clarify_3.png" alt="Clarify 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="clarify_4.png" alt="Clarify 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="clarify_5.png" alt="Clarify 5" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
 
+    <!-- ✅ Cork Modal -->
+    <div id="modal-cork" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-cork')">&times;</span>
+            <div class="modal-header">
+                <h2 style="margin:0;">Eco-Friendly Bicycle Helmet</h2>
+            </div>
+            <div class="modal-text">
+                <p>Developed a sustainable composite cork material for helmet liners, specifically engineering a solution to replace traditional non-biodegradable foams. This project involved a rigorous R&D phase, including the selection of flexible binders and the design of custom test equipment to quantify energy absorption accurately.</p>
+                <p>The process required optimizing the manufacturing parameters—specifically binder concentration, molding temperature, and pressure—to achieve the ideal material properties. Through extensive compression and impact testing, I discovered that agglomerated cork combined with a polyurethane binder excels in crashworthiness, dimensional recovery, and mechanical performance, offering a highly effective and biodegradable alternative for eco-conscious protective gear.</p>
+                <br>
+                <a href="https://www.mdpi.com/1996-1944/17/8/1925" target="_blank" class="btn btn-primary" style="margin-top:10px;">Read Published Paper</a>
+            </div>
+            <h4 class="modal-gallery-title">Prototypes & Testing</h4>
+            <div class="modal-gallery">
+                <img src="cork_1.jpg" alt="Cork 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="cork_2.jpg" alt="Cork 2" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="cork_3.PNG" alt="Cork 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="cork_4.jpg" alt="Cork 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="cork_5.jpg" alt="Cork 5" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="cork_8.jpg" alt="Cork 8" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ AR Modal -->
+    <div id="modal-ar" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-ar')">&times;</span>
+            <h2>AR/VR House Visualization Project</h2>
+            <div class="modal-text">
+                <p>To address the gap between 2D blueprints and physical reality in architecture, I developed an immersive visualization tool using AR and VR technologies. This project enables homeowners and builders to experience a high-fidelity, interactive 3D model of a house before construction begins, significantly reducing costly design iterations and spatial conflicts.</p>
+                <p>The development followed two distinct tracks:
+                    <br><strong>1. VR Implementation (Unity & Meta Quest 3):</strong> Created a fully immersive, interactive walkthrough allowing users to "be inside" the house to assess scale and spatial relationships.
+                    <br><strong>2. Web-AR Implementation (Hoverlay):</strong> Enabled a full-scale 1:1 projection of the house model onto real-world construction sites via mobile phones, facilitating on-site visualization without dedicated headsets.</p>
+            </div>
+            <h4 class="modal-gallery-title">Visualization Gallery</h4>
+            <div class="modal-gallery">
+                <img src="ar_1.jpg" alt="AR 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="ar_2.jpg" alt="AR 2" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="ar_3.jpg" alt="AR 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="ar_4.jpg" alt="AR 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ NASA Modal -->
+    <div id="modal-nasa" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-nasa')">&times;</span>
+            <div class="modal-header">
+                <h2 style="margin:0;">NASA SUITS Challenge Haptic Joystick</h2>
+            </div>
+            <div class="modal-text">
+                <p>Developed a haptic-feedback joystick using an ESP32 and 2-axis servo gimbal for controlling a rover in simulated space environments. The system provides force-feedback to the operator, improving control precision in remote operation scenarios.</p>
+            </div>
+            <h4 class="modal-gallery-title">Hardware & Design</h4>
+            <div class="modal-gallery">
+                <img src="nasa_1.jpg" alt="NASA 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="nasa_3.jpg" alt="NASA 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="nasa_4.jpg" alt="NASA 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ Feedback Modal -->
+    <div id="modal-feedback" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-feedback')">&times;</span>
+            <h2>AI-Powered User Feedback Analysis</h2>
+            <div class="modal-text">
+                <p>Developed a sentiment analysis model using Python and Scikit-learn to automatically categorize and prioritize user feedback from diverse sources, including app reviews and support tickets. The platform enabled a data-driven approach to identifying critical issues, informing feature prioritization and roadmap planning.</p>
+                <br>
+                <a href="https://github.com/tonysojan123/AI-Feedback-Analysis-Platform" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> View Source Code</a>
+            </div>
+            <h4 class="modal-gallery-title">Dashboard View</h4>
+            <div class="modal-gallery">
+                <img src="feedback_1.png" alt="Feedback Dashboard" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ Predictive Modal -->
+    <div id="modal-predictive" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-predictive')">&times;</span>
+            <h2>Predictive Maintenance AI</h2>
+            <div class="modal-text">
+                 <p>Developed a Python machine learning model to predict industrial equipment failure by analyzing time-series sensor data and designed a dashboard to visualize equipment health.</p>
+                 <br>
+                 <a href="https://github.com/tonysojan123/CNC-Predictive-Maintenance" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> View Source Code</a>
+            </div>
+            <h4 class="modal-gallery-title">System Overview</h4>
+            <div class="modal-gallery">
+                <img src="predictive_1.jpg" alt="Predictive System" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ Solar Modal -->
+    <div id="modal-solar" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-solar')">&times;</span>
+            <h2>Solar Water Heater</h2>
+            <div class="modal-text">
+                <p>Designed and built a working model of a solar water heating system using copper tubes arranged in an insulated wooden box, where water is heated by sunlight as it circulates through the system.</p>
+            </div>
+            <h4 class="modal-gallery-title">Build Process</h4>
+            <div class="modal-gallery">
+                <img src="solar_1.jpg" alt="Solar 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="solar_2.jpg" alt="Solar 2" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="solar_3.jpg" alt="Solar 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="solar_4.jpg" alt="Solar 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ Sand Modal -->
+    <div id="modal-sand" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-sand')">&times;</span>
+            <h2>Sand Extraction System</h2>
+            <div class="modal-text">
+                <p>Designed and assembled a motor-driven sand extraction system utilizing a Pelton wheel and conveyor belt powered by a chain-driven electric motor. This project focused on optimizing material transport efficiency.</p>
+            </div>
+            <h4 class="modal-gallery-title">Assembly Photos</h4>
+            <div class="modal-gallery">
+                <img src="sand_1.jpg" alt="Sand 1" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="sand_2.jpg" alt="Sand 2" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="sand_3.jpg" alt="Sand 3" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="sand_6.jpg" alt="Sand 4" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+                <img src="sand_5.jpg" alt="Sand 5" onclick="openFullscreen(this)" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         EXPERIENCE (with your updated bullets)
+         ========================================================= -->
     <section id="experience">
         <h2 class="section-title">Professional Experience</h2>
         <div class="timeline">
 
-            <!-- ✅ UPDATED: Draeger -->
             <div class="job-item">
                 <div class="job-header">
                     <img src="draeger.jpg" alt="Draeger Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=D'">
@@ -738,7 +907,6 @@
                 </div>
             </div>
 
-            <!-- ✅ UPDATED: SolarZero -->
             <div class="job-item">
                 <div class="job-header">
                     <img src="solarzero.jpg" alt="SolarZero Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=S'">
@@ -758,7 +926,6 @@
                 </div>
             </div>
 
-            <!-- Velohawk unchanged -->
             <div class="job-item">
                 <div class="job-header">
                     <img src="velohawk.jpg" alt="Velohawk Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=V'">
@@ -777,7 +944,6 @@
                 </div>
             </div>
 
-            <!-- ✅ UPDATED: Cullen Engineering -->
             <div class="job-item">
                 <div class="job-header">
                     <img src="cullen.jpg" alt="Cullen Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=C'">
@@ -799,7 +965,6 @@
                 </div>
             </div>
             
-            <!-- ✅ UPDATED: Longveld -->
             <div class="job-item">
                 <div class="job-header">
                     <img src="longveld.jpg" alt="Longveld Logo" class="company-logo" onerror="this.src='https://via.placeholder.com/50?text=L'">
@@ -823,7 +988,6 @@
     <section id="education">
         <h2 class="section-title">Education</h2>
         <div class="edu-grid">
-            
             <div class="edu-card">
                 <img src="northeastern.jpg" alt="Northeastern Logo" class="school-logo" onerror="this.src='https://via.placeholder.com/60?text=NU'">
                 <h4>Northeastern University</h4>
@@ -841,14 +1005,13 @@
                 <p style="font-size:0.9rem; color:var(--text-muted)">Graduated Jun 2023.</p>
             </div>
             
-             <div class="edu-card">
+            <div class="edu-card">
                 <img src="wintec.jpg" alt="Wintec Logo" class="school-logo" onerror="this.src='https://via.placeholder.com/60?text=W'">
                 <h4>Waikato Institute of Technology</h4>
-                <p><strong>Diploma in Mechanical Engineering (Assosciate Degree) </strong></p>
+                <p><strong>Diploma in Mechanical Engineering (Assosciate Degree)</strong></p>
                 <p style="font-size:0.9rem; color:var(--text-muted)">Hamilton, New Zealand</p>
                 <p style="font-size:0.9rem; color:var(--text-muted)">Graduated Nov 2017.</p>
             </div>
-            
         </div>
     </section>
 
@@ -865,6 +1028,7 @@
         <p style="margin-top: 3rem; font-size:0.8rem; opacity:0.5;">&copy; 2025 Tony Sojan. Built with GitHub Pages.</p>
     </footer>
 
+    <!-- Fullscreen overlay -->
     <div id="fullscreen-overlay" onclick="closeFullscreen()">
         <span id="fullscreen-close">&times;</span>
         <div id="prev-btn" class="nav-btn" onclick="prevImage(event)">&#10094;</div>
@@ -894,14 +1058,21 @@
             });
         });
 
-        // Project Modal Functions
+        // ✅ Safer modal open/close
         function openModal(modalId) {
-            document.getElementById(modalId).style.display = "block";
+            const modal = document.getElementById(modalId);
+            if (!modal) {
+                console.error("Modal not found:", modalId);
+                return;
+            }
+            modal.style.display = "block";
             document.body.style.overflow = "hidden";
         }
 
         function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            modal.style.display = "none";
             document.body.style.overflow = "auto";
         }
 
@@ -912,9 +1083,16 @@
         function openFullscreen(imgElement) {
             const overlay = document.getElementById('fullscreen-overlay');
             const galleryDiv = imgElement.closest('.modal-gallery');
+            if (!galleryDiv) return;
+
             const images = galleryDiv.querySelectorAll('img');
-            currentImages = Array.from(images).map(img => img.src);
+            currentImages = Array.from(images)
+                .filter(img => img.style.display !== 'none')
+                .map(img => img.src);
+
             currentIndex = currentImages.indexOf(imgElement.src);
+            if (currentIndex < 0) currentIndex = 0;
+
             updateFullscreenImage();
             overlay.style.display = 'flex';
         }
@@ -924,6 +1102,7 @@
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
 
+            if (!currentImages.length) return;
             fullImg.src = currentImages[currentIndex];
 
             prevBtn.style.display = (currentIndex === 0) ? 'none' : 'block';
@@ -952,7 +1131,7 @@
 
         // Close modal if user clicks outside of content
         window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
+            if (event.target.classList && event.target.classList.contains('modal')) {
                 event.target.style.display = "none";
                 document.body.style.overflow = "auto";
             }
